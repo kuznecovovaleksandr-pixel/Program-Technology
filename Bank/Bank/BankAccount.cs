@@ -1,4 +1,6 @@
-﻿namespace Bank;
+﻿using System.Text;
+
+namespace Bank;
 
 internal class BankAccount
 {
@@ -39,6 +41,22 @@ internal class BankAccount
         }
         var withdrawal = new Transaction(-amount, date, note);
         _allTransaction.Add(withdrawal);
+    }
+    public string GetAccountHistory()
+    {
+        var report = new StringBuilder();
+
+        decimal balance = 0;
+        report.AppendLine("Data\t\tAmount\tBalance\tNote");
+        foreach (var item in _allTransaction)
+        {
+            balance += item.Amount;
+            report.AppendLine($"" +
+                $"{item.Date.ToShortDateString()}\t" +
+                $"{item.Amount}\t{balance}\t{item.Note}");
+
+        }
+        return report.ToString();
     }
 
 }

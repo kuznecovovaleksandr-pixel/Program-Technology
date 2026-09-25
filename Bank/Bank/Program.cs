@@ -13,6 +13,8 @@
             Console.WriteLine(account.Balance);
             account.MakeWithdrawal(1000000, DateTime.UtcNow, ":(");
             Console.WriteLine(account.Balance);
+            Console.WriteLine(account.GetAccountHistory());
+
             try
             {
                 account2.MakeWithdrawal(1000, DateTime.UtcNow, ";;");
