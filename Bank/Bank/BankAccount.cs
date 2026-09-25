@@ -40,4 +40,5 @@ internal class BankAccount
         var withdrawal = new Transaction(-amount, date, note);
         _allTransaction.Add(withdrawal);
     }
+
 }
